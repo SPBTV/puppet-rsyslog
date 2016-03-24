@@ -160,7 +160,7 @@ Declare the following to configure the connection:
     address                   => '*',
     high_precision_timestamps => false,
     log_templates             => false,
-    log_conditions            => false,
+    log_filters               => false,
     actionfiletemplate        => false,
     ssl_ca                    => undef,
     ssl_cert                  => undef,
