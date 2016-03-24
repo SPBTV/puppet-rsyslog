@@ -138,6 +138,15 @@ describe 'rsyslog::server', :type => :class do
           end
         end
 
+        context "hostname_template (osfamily = #{osfamily})" do
+          let(:title) { 'log_filters_check' }
+          let(:params) { {'log_filters' => [{'expession' => '$msg contains \'error0\'', 'action' => '/var/log/err.log'}] } }
+    
+          it 'should compile' do
+            should contain_file('/etc/rsyslog.d/server.conf').with_content(%r{if \$msg contains 'error0' then /var/log/err.log})
+          end
+        end
+
       end
     end
 

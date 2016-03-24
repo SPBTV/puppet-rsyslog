@@ -160,6 +160,7 @@ Declare the following to configure the connection:
     address                   => '*',
     high_precision_timestamps => false,
     log_templates             => false,
+    log_conditions            => false,
     actionfiletemplate        => false,
     ssl_ca                    => undef,
     ssl_cert                  => undef,
@@ -195,6 +196,7 @@ The following lists all the class parameters this module accepts.
     address                             STRING              The IP address to bind to. Applies to UDP listener only. Defaults to '*'.
 
     log_templates                       HASH                Provides a has defining custom logging templates using the `$template` configuration parameter.
+    log_filters                         HASH                Provides a has defining custom logging filters using the `if/then` configurations parameter.
     actionfiletemplate                  STRING              If set this defines the `ActionFileDefaultTemplate` which sets the default logging format for remote and local logging.
     high_precision_timestamps           true,false          Whether or not to use high precision timestamps.
     ssl_ca                              STRING              Path to SSL CA certificate

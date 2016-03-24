@@ -22,6 +22,12 @@ $ModLoad imrelp
 $template <%= log_template['name'] %>,"<%= log_template['template'] %>"
 <% end -%>
 <% end -%>
+# Define custom if/then log conditions
+<% if scope.lookupvar('rsyslog::server::log_filters') -%>
+<% scope.lookupvar('rsyslog::server::log_filters').each do |log_filter| -%>
+if <%= log_filter['expession'] %> then <%= log_filter['action'] %>
+<% end -%>
+<% end -%>
 <% if scope.lookupvar('rsyslog::server::actionfiletemplate') -%>
 
 # Using specified format for default logging format:
